@@ -1,3 +1,5 @@
+package entities;
+
 public class Provincia extends Base{
     private String nombre;
 

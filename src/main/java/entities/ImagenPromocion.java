@@ -1,3 +1,5 @@
+package entities;
+
 public class ImagenPromocion extends Base{
     private String denominacion,url;
 

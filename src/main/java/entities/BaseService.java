@@ -1,3 +1,4 @@
+package entities;
 import java.io.Serializable;
 
 public interface BaseService<E extends Base, ID extends Serializable>  {

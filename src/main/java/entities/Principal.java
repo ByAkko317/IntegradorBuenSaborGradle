@@ -1,9 +1,10 @@
+package entities;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Principal {
     public static void main(String[] args) {
-        //Instanciamos un país
+     /*   //Instanciamos un país
         Pais pais = new Pais("Argentina");
 
         //Instanciamos provincias
@@ -112,7 +113,7 @@ public class Principal {
         suc1.addPromocion(promocion1);
 
         //Instanciamos el pedido
-        Pedido pedido = new Pedido(LocalTime.of(10, 30), /*1000.00, 1000.00,*/ Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
+        Pedido pedido = new Pedido(LocalTime.of(10, 30), /*1000.00, 1000.00,*/ /*Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
         //Pedido pedido = new Pedido(LocalTime.of(10, 30), detalle, 1000.00, Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
         //Instanciamos el detalle1 del pedido
         DetallePedido detalle1 = new DetallePedido(2);
@@ -152,6 +153,6 @@ public class Principal {
         //Imprimimos la empresa
         System.out.println(empresa);
         //Luego usaremos la librería lombok para el código (incluyendo los ToString)
-
+        */
     }
 }
