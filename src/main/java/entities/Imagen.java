@@ -12,8 +12,8 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 
-public class ImagenArticulo extends Base{
-    private String nombre,url;
+public class Imagen extends Base{
+    private String nombre,url;//añadir id
+
 
 }
-

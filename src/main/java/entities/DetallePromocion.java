@@ -1,20 +1,17 @@
+package entities;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+
 public class DetallePromocion extends Base {
     private Integer cantidad;
     private Double subtotal;
-
     private Articulo articulo;
-
-    public DetallePromocion() {
-    }
-
-    public DetallePromocion(Integer cantidad, Double subtotal) {
-        this.cantidad = cantidad;
-        this.subtotal = subtotal;
-    }
-
-    public void setArticulo(Articulo articulo) {
-        this.articulo = articulo;
-    }
 
     public double subtotal() {
         if(articulo != null) {

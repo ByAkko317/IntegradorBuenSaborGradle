@@ -1,15 +1,19 @@
+package entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+
 public class ImagenCliente extends Base{
     private String denominacion;
 
-    public ImagenCliente(String denominacion) {
-        this.denominacion = denominacion;
-    }
 
-    public String getDenominacion() {
-        return denominacion;
-    }
-
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
 }
