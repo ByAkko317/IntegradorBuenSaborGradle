@@ -1,29 +1,33 @@
 package Dao;
 
 import BaseConnection.ConectorDB;
+import entities.Cliente;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ClienteDAO implements Cliente{
+public class ClienteSQL implements ClienteDAO{
     private ConectorDB conexion;
 
-    public ClienteDAO() {
+    public ClienteSQL() {
         this.conexion = new ConectorDB();
     }
     @Override
-    public void guardad(Cliente cliente) {
-        String sql = "INSERT INTO cliente (id, nombre, apellido, email) VALUES (?, ?, ?, ?)";
+    public void guardar(Cliente cliente) {
+        String sql = "INSERT INTO cliente (nombre, apellido, email, fecha_nacimiento, telefono) VALUES (?, ?, ?, ?, ?)";
 
         try (
                 Connection conn = conexion.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
         ) {
-            pstmt.setInt(1, cliente.getId());
-            pstmt.setString(2, cliente.getNombre());
-            pstmt.setString(3, cliente.getApellido);
-            pstmt.setString(4, cliente.getEmail());
+            pstmt.setString(1, cliente.getNombre());
+            pstmt.setString(2, cliente.getApellido());
+            pstmt.setString(3, cliente.getEmail());
+            pstmt.setDate(4, Date.valueOf(cliente.getFechaNacimiento()));
+            pstmt.setInt(5, cliente.getTelefono());
+
 
             pstmt.executeUpdate();
         } catch (SQLException e) {

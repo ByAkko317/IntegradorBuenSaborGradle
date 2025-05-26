@@ -1,6 +1,8 @@
 package Dao;
 
-public interface Cliente {
+import entities.Cliente;
 
-    void guardad(Cliente cliente);
+public interface ClienteDAO {
+
+    void guardar(Cliente cliente);
 }

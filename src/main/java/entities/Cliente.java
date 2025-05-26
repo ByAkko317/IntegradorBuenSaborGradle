@@ -1,5 +1,6 @@
 package entities;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import lombok.*;
@@ -14,7 +15,7 @@ import lombok.experimental.SuperBuilder;
 public class Cliente extends Base{
     private String nombre;
     private String apellido;
-    private String telefono;
+    private int telefono;
     private String email;
     private LocalDate fechaNacimiento;
 

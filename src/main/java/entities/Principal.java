@@ -1,4 +1,6 @@
 package entities;
+import Services.ClienteService;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -154,5 +156,25 @@ public class Principal {
         System.out.println(empresa);
         //Luego usaremos la librería lombok para el código (incluyendo los ToString)
         */
+
+
+        ClienteService service = new ClienteService();
+
+        Cliente cliente = Cliente.builder()
+                .nombre("Luciano")
+                .apellido("Molaro")
+                .email("luciano@mail.com")
+                .fechaNacimiento(LocalDate.of(2000,9,27))
+                .telefono(123456789)
+                .build();
+        try {
+            service.registrarCliente(cliente);
+            System.out.println("Cliente guardado.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 }

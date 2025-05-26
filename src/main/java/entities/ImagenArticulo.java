@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 public class ImagenArticulo extends Base{
-    private String nombre,url;//añadir id
+    private String nombre,url;
 
 }
 

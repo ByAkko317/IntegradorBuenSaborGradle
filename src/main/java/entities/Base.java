@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 public class Base {
-    private Long id;
+    @Builder.Default
     private boolean eliminado=false;
 
 
