@@ -2,7 +2,7 @@ package Dao;
 
 import entities.Cliente;
 
-public interface ClienteDAO {
+public interface GenericoDAO {
 
     void guardar(Cliente cliente);
 }
