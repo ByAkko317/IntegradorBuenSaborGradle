@@ -6,49 +6,141 @@ import java.time.LocalTime;
 
 public class Principal {
     public static void main(String[] args) {
-     /*   //Instanciamos un país
-        Pais pais = new Pais("Argentina");
+        //Instanciamos un país
+        Pais pais = Pais.builder()
+                .nombre("Argentina")
+                .build();
 
         //Instanciamos provincias
-        Provincia prov1 = new Provincia("Mendoza");
-        Provincia prov2 = new Provincia("Buenos Aires");
+        Provincia prov1 = Provincia.builder()
+                .nombre("Mendoza")
+                .build();
+
+        Provincia prov2 = Provincia.builder()
+                .nombre("Buenos Aires")
+                .build();
+
         //Seteamos el pais a las provincias
         prov1.setPais(pais);
         prov2.setPais(pais);
 
         //Instanciamos localidades
-        Localidad loc1 = new Localidad("Ciudad de Mendoza");
-        Localidad loc2 = new Localidad("CABA");
+        Localidad loc1 = Localidad.builder()
+                .nombre("Ciudad de Mendoza")
+                .build();
+
+        Localidad loc2 = Localidad.builder()
+                .nombre("CABA")
+                .build();
+
         //Seteamos las provincias a las localidades
         loc1.setProvincia(prov1);
         loc2.setProvincia(prov2);
 
         //Instanciamos domicilios
-        Domicilio dom1 = new Domicilio("Avenida Belgrano", 1200, 5501);
-        Domicilio dom2 = new Domicilio("Avenida Libertadores", 500, 1499);
+        Domicilio dom1 = Domicilio.builder()
+                .calle("Avenida Belgrano")
+                .numero(1200)
+                .cp(5501)
+                .build();
+
+        Domicilio dom2 = Domicilio.builder()
+                .calle("Avenida Libertadores")
+                .numero(500)
+                .cp(1499)
+                .build();
         //Seteamos las localidades a los domicilios
         dom1.setLocalidad(loc1);
         dom2.setLocalidad(loc2);
 
         //Instanciamos sucursales
-        Sucursal suc1 = new Sucursal("Sucursal Mendoza", LocalTime.of(8, 30), LocalTime.of(22, 30));
-        Sucursal suc2 = new Sucursal("Sucursal Buenos Aires", LocalTime.of(9, 0), LocalTime.of(23, 0));
+          Sucursal suc1 = Sucursal.builder()
+                  .nombre("Sucursal Mendoza")
+                  .horarioApertura(LocalTime.of(8, 30))
+                  .horarioCierre(LocalTime.of(22, 30))
+                  .build();
+
+          Sucursal suc2 = Sucursal.builder()
+                  .nombre("Sucursal Buenos Aires")
+                  .horarioApertura(LocalTime.of(9, 0))
+                  .horarioCierre(LocalTime.of(23, 0))
+                  .build();
         //Seteamos los domicilios a las sucursales
         suc1.setDomicilio(dom1);
         suc2.setDomicilio(dom2);
 
         //Instanciamos la empresa
-        Empresa empresa = new Empresa("Smash Burgers", "Smash Burgers S.A.", 332084567);
+//        Empresa empresa = new Empresa("Smash Burgers", "Smash Burgers S.A.", 332084567);
+        Empresa empresa = Empresa.builder()
+                .nombre("Smash Burgers")
+                .razonSocial("Smash Burgers S.A.")
+                .cuil(332084567)
+                .build();
         //Agregamos las sucursales a la empresa
         empresa.addSucursal(suc1);
         empresa.addSucursal(suc2);
 
         //Instanciamos ArticuloInsumo
-        ArticuloInsumo articuloInsumo1 = new ArticuloInsumo("Cheddar", "100", 100.00, true, 50.00, 15, 5, 25, true);
-        ArticuloInsumo articuloInsumo2= new ArticuloInsumo("Carne","101",300.00,true,120.00,30,4,50,true);
-        ArticuloInsumo articuloInsumo3 = new ArticuloInsumo("Bacon", "101", 120.00, true, 50.00, 15, 5, 25, true);
-        ArticuloInsumo articuloInsumo4 = new ArticuloInsumo("Pan de papa", "102", 150.00, true, 50.00, 15, 5, 25, true);
-        ArticuloInsumo articuloInsumo5 = new ArticuloInsumo("Cerveza","200",1500.00,true,60.00,20,2,30,false);
+        ArticuloInsumo articuloInsumo1 = ArticuloInsumo.builder()
+                .denominacion("Cheddar")
+                .codigo("100")
+                .precioVenta(100.00)
+                .habilitado(true)
+                .precioCompra(50.00)
+                .stockActual(15)
+                .stockMinimo(5)
+                .stockMaximo(25)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo articuloInsumo2 = ArticuloInsumo.builder()
+                .denominacion("Carne")
+                .codigo("101")
+                .precioVenta(300.00)
+                .habilitado(true)
+                .precioCompra(120.00)
+                .stockActual(30)
+                .stockMinimo(4)
+                .stockMaximo(50)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo articuloInsumo3 = ArticuloInsumo.builder()
+                .denominacion("Bacon")
+                .codigo("101")
+                .precioVenta(120.00)
+                .habilitado(true)
+                .precioCompra(50.00)
+                .stockActual(15)
+                .stockMinimo(5)
+                .stockMaximo(25)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo articuloInsumo4 = ArticuloInsumo.builder()
+                .denominacion("Pan de papa")
+                .codigo("102")
+                .precioVenta(150.00)
+                .habilitado(true)
+                .precioCompra(50.00)
+                .stockActual(15)
+                .stockMinimo(5)
+                .stockMaximo(25)
+                .esParaElaborar(true)
+                .build();
+
+        ArticuloInsumo articuloInsumo5 = ArticuloInsumo.builder()
+                .denominacion("Cerveza")
+                .codigo("200")
+                .precioVenta(1500.00)
+                .habilitado(true)
+                .precioCompra(60.00)
+                .stockActual(20)
+                .stockMinimo(2)
+                .stockMaximo(30)
+                .esParaElaborar(false)
+                .build();
+
         //Instanciamos la imagen del artículo insumo (cerveza) y la agregamos
         ImagenArticulo imgCerveza = new ImagenArticulo("Cerveza Andes", "cervezaandes.jpg");
         articuloInsumo5.addImagen(imgCerveza);
@@ -115,7 +207,7 @@ public class Principal {
         suc1.addPromocion(promocion1);
 
         //Instanciamos el pedido
-        Pedido pedido = new Pedido(LocalTime.of(10, 30), /*1000.00, 1000.00,*/ /*Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
+        Pedido pedido = new Pedido(LocalTime.of(10, 30),Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
         //Pedido pedido = new Pedido(LocalTime.of(10, 30), detalle, 1000.00, Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
         //Instanciamos el detalle1 del pedido
         DetallePedido detalle1 = new DetallePedido(2);
@@ -155,7 +247,7 @@ public class Principal {
         //Imprimimos la empresa
         System.out.println(empresa);
         //Luego usaremos la librería lombok para el código (incluyendo los ToString)
-        */
+
 
 
         ClienteService service = new ClienteService();
