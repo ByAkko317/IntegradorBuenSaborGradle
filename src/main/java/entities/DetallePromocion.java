@@ -11,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 public class DetallePromocion extends Base {
     private Integer cantidad;
     private Double subtotal;
+
     private Articulo articulo;
 
     public double subtotal() {

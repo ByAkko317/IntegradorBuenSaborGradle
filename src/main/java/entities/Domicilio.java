@@ -10,7 +10,9 @@ import lombok.experimental.SuperBuilder;
 
 public class Domicilio extends Base{
     private String calle;
-    private Integer numero, cp;
+    private Integer numero;
+    private Integer cp;
+
     private Localidad localidad;
 
 }

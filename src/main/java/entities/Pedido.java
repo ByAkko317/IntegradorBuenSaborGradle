@@ -33,7 +33,6 @@ public class Pedido extends Base {
     private Set<DetallePedido> detallesPedido;
 
 
-
     public void addDetallePedido(DetallePedido detallePedido) {
         if (this.detallesPedido == null) this.detallesPedido = new HashSet<>();
         this.detallesPedido.add(detallePedido);
@@ -43,11 +42,11 @@ public class Pedido extends Base {
         if (this.detallesPedido.contains(detallePedido)) this.detallesPedido.remove(detallePedido);
     }
 
-//    public double totalCosto() {
-//        double totalCosto = 0;
-//        for (DetallePedido detalle : detallesPedido) {
-//            totalCosto += detalle.getCosto();
-//        }
-//        return totalCosto;
-//    }
+    public double totalCosto() {
+        double totalCosto = 0;
+        for (DetallePedido detalle : detallesPedido) {
+            totalCosto += detalle.getCosto();
+        }
+        return totalCosto;
+    }
 }

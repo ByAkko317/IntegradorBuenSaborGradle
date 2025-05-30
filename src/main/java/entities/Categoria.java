@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 public class Categoria extends Base {
     private String denominacion;
 
-    private Set<Categoria> subCategorias;//=new ArrayList<>();
+    private Set<Categoria> subCategorias;
     private Categoria categoriaPadre;
     private Set<Articulo> articulos;
     public void addCategoria(Categoria categoria){

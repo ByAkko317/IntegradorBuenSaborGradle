@@ -12,8 +12,10 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 
 public class Empresa extends Base{
-    private String nombre,razonSocial;
+    private String nombre;
+    private String razonSocial;
     private Integer cuil;
+
     private Set<Sucursal> sucursales;
 
     public void addSucursal(Sucursal sucursal){
