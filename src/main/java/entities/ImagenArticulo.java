@@ -1,25 +1,19 @@
+package entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder
+
 public class ImagenArticulo extends Base{
-    private String nombre,url;//añadir id
+    private String nombre,url;
 
-    public ImagenArticulo(String nombre, String url) {
-        this.nombre = nombre;
-        this.url = url;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 }
 
