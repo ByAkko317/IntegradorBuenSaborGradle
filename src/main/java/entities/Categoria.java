@@ -22,12 +22,12 @@ public class Categoria extends Base {
     public void addCategoria(Categoria categoria){
         if (this.subCategorias==null)this.subCategorias=new HashSet<>();
         if (categoria!=null)this.subCategorias.add(categoria);
-//        categoria.setCategoriaPadre(this);
+        categoria.setCategoriaPadre(this);
     }
 
     public void removeSubCategoria(Categoria subCategoria){
         if(this.subCategorias.contains(subCategoria))this.subCategorias.remove(subCategoria);
-//        subCategoria.setCategoriaPadre(null);
+        subCategoria.setCategoriaPadre(null);
     }
 
     public void addArticulo(Articulo articulo){
