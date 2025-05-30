@@ -142,28 +142,53 @@ public class Principal {
                 .build();
 
         //Instanciamos la imagen del artículo insumo (cerveza) y la agregamos
-        ImagenArticulo imgCerveza = new ImagenArticulo("Cerveza Andes", "cervezaandes.jpg");
+        ImagenArticulo imgCerveza = ImagenArticulo.builder()
+                .nombre("Cerveza Andes")
+                .url("cervezaandes.jpg")
+                .build();
         articuloInsumo5.addImagen(imgCerveza);
 
         //Instanciamos unidades de medidas
-        UnidadMedida gramos = new UnidadMedida("gr");
+        UnidadMedida gramos = UnidadMedida.builder().denominacion("gr").build();
         articuloInsumo1.setUnidadMedida(gramos);
         articuloInsumo2.setUnidadMedida(gramos);
-        UnidadMedida unidad = new UnidadMedida("unidad");
+        UnidadMedida unidad = UnidadMedida.builder().denominacion("unidad").build();
         articuloInsumo3.setUnidadMedida(unidad);
-        UnidadMedida litros = new UnidadMedida("lt");
+        UnidadMedida litros = UnidadMedida.builder().denominacion("lt").build();
         articuloInsumo5.setUnidadMedida(litros);
 
         //Instanciamos Artículo Manufacturado
-        ArticuloManufacturado articuloManufacturado1 = new ArticuloManufacturado("Doble cheese burger", "1500", 9000.00, true, "Hamburguesa de pan de papa con cheddar, bacon y doble medallón", 18, "Coccion media");
+        ArticuloManufacturado articuloManufacturado1 = ArticuloManufacturado.builder()
+                .denominacion("Doble cheese burger")
+                .codigo("1500")
+                .precioVenta(9000.00)
+                .habilitado(true)
+                .descripcion("Hamburguesa de pan de papa con cheddar, bacon y doble medallón")
+                .tiempoEstimadoMinutos(18)
+                .preparacion("Cocción media")
+                .build();
         //Instanciamos la imagen del artículo manufacturado y la agregamos
-        ImagenArticulo imgArticuloMan = new ImagenArticulo("Doble cheese imagen", "bcheese.jpg");
+        ImagenArticulo imgArticuloMan = ImagenArticulo.builder()
+                .nombre("Doble cheese imagen")
+                .url("bcheese.jpg")
+                .build();
         articuloManufacturado1.addImagen(imgArticuloMan);
         //Instanciamos los detalles de los articulos manufacturados
-        ArticuloManufacturadoDetalle detalleArticuloManufacturado1 = new ArticuloManufacturadoDetalle(1);
-        ArticuloManufacturadoDetalle detalleArticuloManufacturado2 = new ArticuloManufacturadoDetalle(2);
-        ArticuloManufacturadoDetalle detalleArticuloManufacturado3 = new ArticuloManufacturadoDetalle(1);
-        ArticuloManufacturadoDetalle detalleArticuloManufacturado4 = new ArticuloManufacturadoDetalle(1);
+        ArticuloManufacturadoDetalle detalleArticuloManufacturado1 = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .build();
+
+        ArticuloManufacturadoDetalle detalleArticuloManufacturado2 = ArticuloManufacturadoDetalle.builder()
+                .cantidad(2)
+                .build();
+
+        ArticuloManufacturadoDetalle detalleArticuloManufacturado3 = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .build();
+
+        ArticuloManufacturadoDetalle detalleArticuloManufacturado4 = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .build();
         //Seteamos los articulos insumos en los detalles
         detalleArticuloManufacturado1.setArticuloInsumo(articuloInsumo1);
         detalleArticuloManufacturado2.setArticuloInsumo(articuloInsumo2);
@@ -176,10 +201,22 @@ public class Principal {
         articuloManufacturado1.addDetalle(detalleArticuloManufacturado4);
 
         //Instanciamos subcategorias y categorias padres
-        Categoria categoriaPadre1 = new Categoria("Hamburguesas");
-        Categoria categoriaPadre2 = new Categoria("Bebidas");
-        Categoria categoria1 = new Categoria("Hamburguesas dobles");
-        Categoria categoria2 = new Categoria("Con alcohol");
+        //Categoria categoriaPadre1 = new Categoria("Hamburguesas");
+        Categoria categoriaPadre1 = Categoria.builder()
+                .denominacion("Hamburguesas")
+                .build();
+
+        Categoria categoriaPadre2 = Categoria.builder()
+                .denominacion("Bebidas")
+                .build();
+
+        Categoria categoria1 = Categoria.builder()
+                .denominacion("Hamburguesas dobles")
+                .build();
+
+        Categoria categoria2 = Categoria.builder()
+                .denominacion("Con alcohol")
+                .build();
         categoriaPadre1.addCategoria(categoria1);
         categoriaPadre2.addCategoria(categoria2);
 
@@ -194,27 +231,49 @@ public class Principal {
         suc2.addCategoria(categoriaPadre2);
 
         //Instanciamos promociones
-        Promocion promocion1 = new Promocion("Promo 10%", LocalDate.MIN, LocalDate.MAX, LocalTime.MIN, LocalTime.MAX, "Descuento por el aniversario del restaurante", 8000.00, TipoPromocion.PROMOCION);
+        Promocion promocion1 = Promocion.builder()
+                .denominacion("Promo 10%")
+                .fechaDesde(LocalDate.MIN)
+                .fechaHasta(LocalDate.MAX)
+                .HoraDesde(LocalTime.MIN)
+                .HoraHasta(LocalTime.MAX)
+                .descripcionDescuento("Descuento por el aniversario del restaurante")
+                .precioPromocional(8000.00)
+                .tipoPromocion(TipoPromocion.PROMOCION)
+                .build();
         //Promocion promocion2 = new Promocion("Promo compartir", LocalDate.MIN, LocalDate.MAX, LocalTime.MIN, LocalTime.MAX, "Descuento disponible días martes", 15000.00, TipoPromocion.PROMOCION);
         //Agregamos artÍculo a las promociones
         promocion1.addArticulo(articuloManufacturado1);
         promocion1.addArticulo(articuloInsumo5);
         //Instanciamos ImagenPromocion
-        ImagenPromocion imagenPromocion = new ImagenPromocion("Imagen de doble cheese con cerveza","imagenpromo.jpg");
+        ImagenPromocion imagenPromocion = ImagenPromocion.builder()
+                .denominacion("Imagen de doble cheese con cerveza")
+                .url("imagenpromo.jpg")
+                .build();
         //Agregamos ImagenPromocion a promocion
         promocion1.addImagen(imagenPromocion);
         //Agregamos Promoción a Sucursal
         suc1.addPromocion(promocion1);
 
         //Instanciamos el pedido
-        Pedido pedido = new Pedido(LocalTime.of(10, 30),Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
+        Pedido pedido = Pedido.builder()
+                .horaEstimadaFinalizacion(LocalTime.of(10, 30))
+                .estado(Estado.PENDIENTE)
+                .tipoEnvio(TipoEnvio.DELIVERY)
+                .formaPago(FormaPago.EFECTIVO)
+                .fechaPedido(LocalDate.now())
+                .build();
         //Pedido pedido = new Pedido(LocalTime.of(10, 30), detalle, 1000.00, Estado.PENDIENTE, TipoEnvio.DELIVERY, FormaPago.EFECTIVO, LocalDate.now());
         //Instanciamos el detalle1 del pedido
-        DetallePedido detalle1 = new DetallePedido(2);
+        DetallePedido detalle1 = DetallePedido.builder()
+                .cantidad(2)
+                .build();
         //Agregamos el articulo manufacturado al detalle1
         detalle1.setArticulo(articuloManufacturado1);
         //Instanciamos el detalle2 del pedido
-        DetallePedido detalle2 = new DetallePedido(2);
+        DetallePedido detalle2 = DetallePedido.builder()
+                .cantidad(2)
+                .build();
         //Agregamos el articulo insumo al detalle2
         detalle2.setArticulo(articuloInsumo5);
         //Agregamos los detalles al pedido
@@ -226,29 +285,26 @@ public class Principal {
         pedido.setSucursal(suc1);
 
         //Instanciamos facturas
-        Factura factura = new Factura(20000.00, FormaPago.MERCADO_PAGO, LocalDate.now());
+        //Factura factura = new Factura(20000.00, FormaPago.MERCADO_PAGO, LocalDate.now());
+        Factura factura = Factura.builder()
+                .totalVenta(20000.00)
+                .formaPago(FormaPago.MERCADO_PAGO)
+                .fechaFacturacion(LocalDate.now())
+                .build();
         // Factura factura2 = new Factura(10000.00, FormaPago.EFECTIVO, LocalDate.now());
         //Agregamos la factura al pedido
         pedido.setFactura(factura);
 
 
         //Instanciamos cliente con su usuario e imagen
-        Usuario user = new Usuario("227", "mfernandez");
-        ImagenCliente imgCliente = new ImagenCliente("imagen.jpg");
-        Cliente cliente = new Cliente("Mariana", "Fernandez", "2611234567", "mfernandez@uc.cl", LocalDate.of(2000, 10, 10));
-        cliente.setImagen(imgCliente);
-        cliente.setUsuario(user);
-        //Istanciamos el domicilio del cliente y se lo agregamos a la lista de domicilios
-        Domicilio dom3 = new Domicilio("Avenida Lavalle", 1500, 5601);
-        cliente.addDomicilio(dom3);
-        //Agregamos pedido a cliente
-        cliente.addPedido(pedido);
+        Usuario user = Usuario.builder()
+                .authOId("227")
+                .username("mfernandez")
+                .build();
 
-        //Imprimimos la empresa
-        System.out.println(empresa);
-        //Luego usaremos la librería lombok para el código (incluyendo los ToString)
-
-
+        ImagenCliente imgCliente = ImagenCliente.builder()
+                .denominacion("imagen.jpg")
+                .build();
 
         ClienteService service = new ClienteService();
 
@@ -265,8 +321,20 @@ public class Principal {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        cliente.setImagen(imgCliente);
+        cliente.setUsuario(user);
+        //Istanciamos el domicilio del cliente y se lo agregamos a la lista de domicilios
+        Domicilio dom3 = Domicilio.builder()
+                .calle("Avenida Lavalle")
+                .numero(1500)
+                .cp(5601)
+                .build();
+        cliente.addDomicilio(dom3);
+        //Agregamos pedido a cliente
+        cliente.addPedido(pedido);
 
-
+        //Imprimimos la empresa
+        System.out.println(empresa);
 
     }
 }
