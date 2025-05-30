@@ -11,4 +11,8 @@ import lombok.experimental.SuperBuilder;
 public class ArticuloManufacturadoDetalle extends Base {
     private int cantidad;
     private ArticuloInsumo articuloInsumo;
+
+    public double costoTotal(){
+        return articuloInsumo.getPrecioCompra()*cantidad;
+    }
 }

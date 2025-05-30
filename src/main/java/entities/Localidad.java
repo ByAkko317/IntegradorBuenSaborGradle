@@ -17,5 +17,4 @@ public class Localidad extends Base{
 
     private Provincia provincia;
 
-
 }

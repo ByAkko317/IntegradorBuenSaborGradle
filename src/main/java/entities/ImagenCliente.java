@@ -15,5 +15,4 @@ import lombok.experimental.SuperBuilder;
 public class ImagenCliente extends Base{
     private String denominacion;
 
-
 }
