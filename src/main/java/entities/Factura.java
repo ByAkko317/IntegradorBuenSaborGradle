@@ -15,5 +15,6 @@ public class Factura extends Base{
     private Integer mpPaymentId, mpMerchantOrderId;
     private FormaPago formaPago;
     private Double totalVenta;
+    private LocalDate fechaFacturacion;
 
 }

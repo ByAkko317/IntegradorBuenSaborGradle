@@ -17,15 +17,15 @@ public abstract class Articulo extends Base{
     protected Double precioVenta;
     protected boolean habilitado;
 
-    private List<Imagen> imagenes;
+    private List<ImagenArticulo> imagenes;
+    private UnidadMedida unidadMedida;
 
-
-    public void addImagen(Imagen imagen) {
+    public void addImagen(ImagenArticulo imagen) {
         if (this.imagenes == null) this.imagenes = new ArrayList<>();
-        if (imagenes != null) this.imagenes.add(imagen);
+        if (imagen != null) this.imagenes.add(imagen);
     }
 
-    public void removeImagen(Imagen imagen) {
+    public void removeImagen(ImagenArticulo imagen) {
         if (imagen != null) {
             imagenes.remove(imagen);
         }
